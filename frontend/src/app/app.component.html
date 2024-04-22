@@ -1,0 +1,46 @@
+<po-page-default p-title="Downloader Music/Video - Youtube"> 
+
+  <ng-container>
+    <div class="po-row">
+      <po-input 
+        class="po-md-6" 
+        [(ngModel)]="data.url" 
+        name="url" 
+        p-label="URL"
+        p-placeholder="https://www.youtube.com/watch?v=codevideo">
+      </po-input>
+    
+      <po-select
+        class="po-md-6"
+        name="type"
+        p-label="Tipo"
+        [ngModel]="data.type"
+        [p-options]="typeOptions"
+        (p-change)="onChangeType($event)"
+      >
+      </po-select>
+    </div>
+
+    <div class="po-row">
+      <po-button 
+        [p-disabled]="!data.url || !data.type"
+        p-label="Download" 
+        (p-click)="onSubmit()"
+        class="po-sm-12 po-md-12 po-lg-6 po-xl-6"> 
+      </po-button>
+    </div>
+
+    <div class="image-container">
+      <img src="assets/youtube.png" alt="Descrição da Imagem">
+    </div>
+  </ng-container>
+
+</po-page-default>
+
+<po-loading-overlay
+    *ngIf="loading"
+    [p-screen-lock]="true"
+    [p-text]="loadingMessage">
+</po-loading-overlay>
+
+<router-outlet></router-outlet>

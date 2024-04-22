@@ -1,0 +1,11 @@
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh; /* Isso faz com que o container tenha a altura total da viewport */
+}
+
+.image-container img {
+    max-width: 60%; /* Garante que a imagem não seja maior que o container */
+    max-height: 60%; /* Garante que a imagem não seja maior que o container */
+}
